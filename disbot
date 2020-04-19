@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+const program = require('commander')
+const chalk = require('chalk')
+
+program
+    .usage('Usage: disbot <command> [options]')
+
+program.on('--help', () => {
+    console.log('')
+    console.log('Example call:')
+    console.log('  $ disbot create --name my-project')
+    console.log(`  Run ${chalk.cyan(`disbot <command> --help`)} for detailed usage of given command.`)
+})
+
+const create = require('./src/create')
+
+program
+    .command('create <project_name>')
+    .description('create discord bot project')
+    .action(name => create(name, process.cwd()))
+
+const generateCommand = require('./src/generate-command')
+
+program
+    .command('generate-command <command_name>')
+    .description('generate command for bot')
+    .action(name => generateCommand(name, process.cwd()))
+
+
+// enhance common error messages
+const enhanceErrorMessages = require('./src/utils/enhanceErrorMessages')
+
+enhanceErrorMessages('missingArgument', argName => {
+    return `Missing required argument ${chalk.yellow(`<${argName}>`)}.`
+})
+
+enhanceErrorMessages('unknownOption', optionName => {
+    return `Unknown option ${chalk.yellow(optionName)}.`
+})
+
+enhanceErrorMessages('optionMissingArgument', (option, flag) => {
+    return `Missing required argument for option ${chalk.yellow(option.flags)}` + (
+        flag ? `, got ${chalk.yellow(flag)}` : ``
+    )
+})
+
+program.parse(process.argv)
