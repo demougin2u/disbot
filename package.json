@@ -1,5 +1,5 @@
 {
-  "name": "disbot",
+  "name": "disbot-cli",
   "version": "1.0.0",
   "description": "A CLI for bootstrap discord bot with discord.js",
   "main": "disbot",
@@ -9,10 +9,25 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "ddemougi+disbot@gmail.com",
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.0.0",
     "commander": "^5.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demougin2u/disbot.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Bootstrap",
+    "CLI"
+  ],
+  "bugs": {
+    "url": "https://github.com/demougin2u/disbot/issues"
+  },
+  "homepage": "https://github.com/demougin2u/disbot#readme"
 }
