@@ -18,7 +18,7 @@ const formatMessage = message => {
         second: "2-digit",
         hour12: false
     })
-
+    if (message === undefined) message = 'undefined message'
     return `${dateFormater.format(new Date())} => ${message.stack ? message.stack : message}`
 }
     

@@ -1,7 +1,15 @@
 /** init devenv must be first code **/
 const dotenv = require('dotenv')
-dotenv.config({ path: 'local.env' })
-dotenv.config()
+const path = require('path')
+const Logger = require('./src/Logger')
+
+const pathLocalEnv = path.resolve(__dirname, '.env.local')
+Logger.info(`Load environnement file in ${pathLocalEnv}`)
+dotenv.config({ path: pathLocalEnv })
+
+const pathEnv = path.resolve(__dirname, '.env')
+Logger.info(`Load environnement file in ${pathEnv}`)
+dotenv.config({ path: pathEnv })
 
 /** Logger could be overwrite like you want */
 const Logger = require('./src/Logger')
