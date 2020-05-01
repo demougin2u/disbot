@@ -1,6 +1,6 @@
 {
   "name": "disbot-cli",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A CLI for bootstrap discord bot with discord.js",
   "main": "disbot",
   "bin": {
