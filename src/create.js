@@ -27,7 +27,7 @@ module.exports = (name, options = {}) => {
         path.resolve(targetDir, 'package.json'),
         `${JSON.stringify(package)}\n`
     )
-    
+
     const readme = [
         `# ${name}`,
         'A bot discord for fun',
@@ -49,8 +49,8 @@ module.exports = (name, options = {}) => {
     )
 
     const dotenv = {
-        COMMAND_START: '/',
-        BOT_TOKEN: 'PUT_YOUR_TOKEN_HERE'
+        COMMAND_START: options.prefix !== undefined ? options.prefix : '/',
+        BOT_TOKEN: options.token !== undefined ? options.token : 'PUT_YOUR_TOKEN_HERE'
     }
 
     fs.writeFileSync(

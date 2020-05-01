@@ -18,7 +18,9 @@ const create = require('./src/create')
 program
     .command('create <project_name>')
     .description('create discord bot project')
-    .action(name => create(name, process.cwd()))
+    .option('-p, --prefix <prefix>', 'prefix of command', '/')
+    .option('-t, --token <token>', 'bot\'s token')
+    .action((name, args) => create(name, args))
 
 const generateCommand = require('./src/generate-command')
 
