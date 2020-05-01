@@ -4,7 +4,7 @@ Bootstrap Discord bot easily
 
 ## Install
 ```
-npm install -g disbot
+npm install -g disbot-cli
 ```
 
 ## Usage
