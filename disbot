@@ -27,7 +27,8 @@ const generateCommand = require('./src/generate-command')
 program
     .command('generate-command <command_name>')
     .description('generate command for bot')
-    .action(name => generateCommand(name, process.cwd()))
+    .option('-m, --message <message>', 'message shown on help', false)
+    .action((name, args) => generateCommand(name, args))
 
 
 // enhance common error messages
