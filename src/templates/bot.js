@@ -59,7 +59,7 @@ bot.on('message', (message) => {
     try {
         const cmd = bot.commands.get(command)
         cmd.execute(message, args)
-        message.delete()
+        message.delete().catch(() => {/** Silent error */})
     } catch (err) {
         Logger.error(err)
     }
